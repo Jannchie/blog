@@ -4,12 +4,26 @@
       {{ article.title ? article.title : article.slug }}
     </h1>
     <p class="mt-0 mb-2 text-xs text-center text-gray-600">
-      Last updated: {{ moment(article.updatedAt).fromNow() }}
+      上次更新 {{ moment(article.updatedAt).fromNow() }}
     </p>
     <article
-      class="flex self-center prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+      class="self-center prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
     >
       <nuxt-content :document="article" />
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="text-xs text-gray-600">上一篇</div>
+          <NuxtLink v-if="prev" :to="`/articles${prev.path}`">
+            {{ prev.title ? prev.title : prev.slug }}
+          </NuxtLink>
+        </div>
+        <div class="text-right">
+          <div class="text-xs text-gray-600">下一篇</div>
+          <NuxtLink v-if="next" :to="`/articles${next.path}`">
+            {{ next.title ? next.title : next.slug }}
+          </NuxtLink>
+        </div>
+      </div>
     </article>
     <nuxt-link
       class="self-center my-1 py-2 px-3 tracking-widest uppercase"
@@ -23,8 +37,14 @@
 import moment from 'moment'
 export default {
   async asyncData({ $content, params }) {
-    const article = await $content(params.pathMatch, { deep: true }).fetch()
-    return { article }
+    const path = params.pathMatch
+    const article = await $content(path).fetch()
+    const [prev, next] = await $content('/', { deep: true })
+      .only(['title', 'slug', 'path'])
+      .sortBy('createdAt', 'asc')
+      .surround(article.path)
+      .fetch()
+    return { article, path, prev, next }
   },
   methods: {
     moment,

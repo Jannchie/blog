@@ -62,7 +62,7 @@ export default Vue.extend({
         'updatedAt',
         'createdAt',
       ])
-      .sortBy('updatedAt', 'desc')
+      .sortBy('createdAt', 'desc')
       .fetch()
     return {
       articles,
