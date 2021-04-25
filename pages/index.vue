@@ -14,7 +14,7 @@
       </div>
       <div>
         <div class="mt-6 mb-4">
-          <div class="text-sm text-gray-600 font-serif">Recent Articles</div>
+          <div class="text-sm text-gray-800 font-serif">Recent Articles</div>
           <div class="text-3xl font-serif text-gray-800">最近文章</div>
         </div>
         <nuxt-link

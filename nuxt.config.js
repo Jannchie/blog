@@ -44,8 +44,23 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    [
+      'nuxt-i18n',
+      {
+        detectBrowserLanguage: {
+          useCookie: false,
+          onlyOnRoot: true, // recommended
+        },
+      },
+    ],
   ],
-
+  i18n: {
+    locales: ['en-US', 'ja-JP', 'zh-CN'],
+    defaultLocale: 'zh-CN',
+    vueI18n: {
+      fallbackLocale: 'zh-CN',
+    },
+  },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
