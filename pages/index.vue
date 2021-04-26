@@ -14,8 +14,10 @@
       </div>
       <div>
         <div class="mt-6 mb-4">
-          <div class="text-sm text-gray-800 font-serif">Recent Articles</div>
-          <div class="text-3xl font-serif text-gray-800">最近文章</div>
+          <div class="text-sm text-gray-400 font-serif">Recent Articles</div>
+          <div class="text-3xl font-serif font-bold text-gray-800">
+            最近文章
+          </div>
         </div>
         <nuxt-link
           v-for="article in articles"
@@ -23,11 +25,24 @@
           :to="`articles${article.path}`"
         >
           <div class="mb-3 text-gray-800">
-            <div class="text-xl font-medium font-serif tracking-wider">
+            <span
+              v-for="path in getPathList(article.path)"
+              :key="path"
+              class="text-sm tracking-wider text-gray-400 path-item"
+            >
+              {{ getPathName(path) }}
+            </span>
+            <span
+              v-if="getPathList(article.path).length == 0"
+              class="text-sm tracking-wider text-gray-400 path-item"
+            >
+              未分类
+            </span>
+            <div class="text-2xl font-serif">
               {{ article.title ? article.title : article.slug }}
             </div>
             <div
-              class="text-xs text-gray-600 tracking-widest divide-x divide-gray-400"
+              class="text-sm text-gray-400 tracking-widest divide-x divide-gray-400"
             >
               <span>
                 {{ moment(article.updatedAt).format('YYYY-MM-DD HH:mm:ss') }}
@@ -62,7 +77,7 @@ export default Vue.extend({
         'updatedAt',
         'createdAt',
       ])
-      .sortBy('createdAt', 'desc')
+      .sortBy('updatedAt', 'desc')
       .fetch()
     return {
       articles,
@@ -70,11 +85,33 @@ export default Vue.extend({
   },
   methods: {
     moment,
+    getPathList(path: string) {
+      const res = path.split('/')
+      res.shift()
+      res.pop()
+      return res
+    },
+    getPathName(path: string) {
+      switch (path) {
+        case 'short-report':
+          return '小总结'
+        case 'computer-vision':
+          return '计算机视觉'
+        case 'developer':
+          return '开发者'
+        case 'draft':
+          return '草稿'
+      }
+      return path
+    },
   },
 })
 </script>
 <style lang="postcss" scoped>
 .container {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
+}
+.path-item:not(:first-child)::before {
+  content: '>';
 }
 </style>
