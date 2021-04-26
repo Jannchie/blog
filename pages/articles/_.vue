@@ -16,20 +16,22 @@
           <NuxtLink v-if="prev" :to="`/articles${prev.path}`">
             {{ prev.title ? prev.title : prev.slug }}
           </NuxtLink>
+          <div v-else>没有了</div>
         </div>
         <div class="text-right">
           <div class="text-xs text-gray-600">下一篇</div>
           <NuxtLink v-if="next" :to="`/articles${next.path}`">
             {{ next.title ? next.title : next.slug }}
           </NuxtLink>
+          <div v-else>没有了</div>
         </div>
       </div>
     </article>
     <nuxt-link
-      class="self-center my-1 py-2 px-3 tracking-widest uppercase"
+      class="self-center my-1 py-2 px-3 font-bold tracking-widest uppercase font-serif underline"
       to="/"
     >
-      Go Home
+      回到首页
     </nuxt-link>
   </div>
 </template>
@@ -39,12 +41,13 @@ export default {
   async asyncData({ $content, params }) {
     const path = params.pathMatch
     const article = await $content(path).fetch()
+    const tags = article.tags ? article.tags.replace(/\s/g, '').split(',') : []
     const [prev, next] = await $content('/', { deep: true })
       .only(['title', 'slug', 'path'])
       .sortBy('createdAt', 'asc')
       .surround(article.path)
       .fetch()
-    return { article, path, prev, next }
+    return { article, path, prev, next, tags }
   },
   methods: {
     moment,

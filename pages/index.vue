@@ -22,8 +22,10 @@
           :key="article.title"
           :to="`articles${article.path}`"
         >
-          <div class="mb-3 text-gray-800">
-            <div class="text-xl font-medium font-serif tracking-wider">
+          <div class="mt-0 mb-3 text-gray-800">
+            <div
+              class="text-xl font-bold font-serif tracking-wider hover:underline"
+            >
               {{ article.title ? article.title : article.slug }}
             </div>
             <div
