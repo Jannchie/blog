@@ -19,11 +19,7 @@
             最近文章
           </div>
         </div>
-        <nuxt-link
-          v-for="article in articles"
-          :key="article.title"
-          :to="`articles${article.path}`"
-        >
+        <div v-for="article in articles" :key="article.title">
           <div class="mb-3 text-gray-800">
             <span
               v-for="path in getPathList(article.path)"
@@ -38,9 +34,11 @@
             >
               未分类
             </span>
-            <div class="text-2xl font-serif">
-              {{ article.title ? article.title : article.slug }}
-            </div>
+            <nuxt-link :to="`articles${article.path}`">
+              <div class="text-2xl font-serif hover:underline">
+                {{ article.title ? article.title : article.slug }}
+              </div>
+            </nuxt-link>
             <div
               class="text-sm text-gray-400 tracking-widest divide-x divide-gray-400"
             >
@@ -52,7 +50,7 @@
               </span>
             </div>
           </div>
-        </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
