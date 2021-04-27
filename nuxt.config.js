@@ -17,6 +17,12 @@ export default {
         href: 'https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css',
       },
     ],
+    script: [
+      {
+        src: 'https://kit.fontawesome.com/5f400b6ff5.js',
+        crossorigin: 'anonymous',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

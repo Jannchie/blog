@@ -18,5 +18,13 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'vue/component-name-in-template-casing': [
+      'warn',
+      'PascalCase',
+      {
+        registeredComponentsOnly: false,
+        ignores: [],
+      },
+    ],
   },
 }

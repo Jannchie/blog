@@ -2,43 +2,8 @@
   <div class="container">
     <div>
       <Logo />
-      <div>
-        <div class="uppercase font-xs tracking-widest font-serif text-gray-400">
-          Not all who wander are lost
-        </div>
-        <h1
-          class="uppercase mt-0 text-3xl text-gray-800 tracking-widest font-bold font-serif"
-        >
-          Jannchie's Blog
-        </h1>
-      </div>
-      <div class="flex justify-center text-center uppercase items-center">
-        <svg width="50px" height="2px">
-          <rect width="50px" height="2px" color="#333"></rect>
-        </svg>
-        <NavItem
-          class="nav-item"
-          title="文章"
-          sub-title="Articles"
-          to="/articles"
-        />
-        <svg width="10px" height="10px">
-          <rect width="10px" height="10px" color="#333"></rect>
-        </svg>
-        <NavItem class="nav-item" title="关于" sub-title="About" to="/about" />
-        <svg width="10px" height="10px">
-          <rect width="10px" height="10px" color="#333"></rect>
-        </svg>
-        <NavItem
-          class="nav-item"
-          title="鸣谢"
-          sub-title="Thanks"
-          to="/thanks"
-        />
-        <svg width="50px" height="2px">
-          <rect width="50px" height="2px" color="#333"></rect>
-        </svg>
-      </div>
+      <BlogTitle></BlogTitle>
+      <BlogNav></BlogNav>
       <div>
         <div class="mt-6 mb-4">
           <div class="text-sm text-gray-400 font-serif">Recent Articles</div>
@@ -61,11 +26,11 @@
             >
               未分类
             </span>
-            <nuxt-link :to="`articles${article.path}`">
+            <NuxtLink :to="`articles${article.path}`">
               <div class="text-2xl font-serif hover:underline">
                 {{ article.title ? article.title : article.slug }}
               </div>
-            </nuxt-link>
+            </NuxtLink>
             <div
               class="text-sm text-gray-400 tracking-widest divide-x divide-gray-400"
             >
@@ -89,6 +54,7 @@ import moment from 'moment'
 export default Vue.extend({
   async asyncData({ $content }) {
     const articles = await $content('/', { deep: true })
+      .where({ slug: { $ne: 'README' } })
       .only([
         'title',
         'description',
@@ -138,8 +104,5 @@ export default Vue.extend({
 }
 .path-item:not(:first-child)::before {
   content: '>';
-}
-.nav-item {
-  @apply my-2 mx-3 w-16 hover:mx-6 transform duration-300;
 }
 </style>

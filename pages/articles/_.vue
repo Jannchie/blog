@@ -9,7 +9,8 @@
     <article
       class="self-center prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
     >
-      <nuxt-content :document="article" />
+      <NuxtContent :document="article" />
+      <ArticleLicense />
       <div class="flex justify-between items-center">
         <div>
           <div class="text-xs text-gray-600">上一篇</div>
@@ -27,12 +28,12 @@
         </div>
       </div>
     </article>
-    <nuxt-link
+    <NuxtLink
       class="self-center my-1 py-2 px-3 font-bold tracking-widest uppercase font-serif underline"
       to="/"
     >
       回到首页
-    </nuxt-link>
+    </NuxtLink>
   </div>
 </template>
 <script>
