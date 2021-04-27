@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col mx-2">
+    <BlogTitle /> <BlogNav />
     <h1 class="mt-3 mb-2 font-bold text-3xl sm:text-4xl lg:text-5xl">
       {{ article.title ? article.title : article.slug }}
     </h1>
