@@ -3,14 +3,41 @@
     <div>
       <Logo />
       <div>
-        <div class="font-xs tracking-widest font-serif text-gray-400">
+        <div class="uppercase font-xs tracking-widest font-serif text-gray-400">
           Not all who wander are lost
         </div>
         <h1
-          class="mt-0 text-3xl text-gray-800 tracking-widest font-bold font-serif"
+          class="uppercase mt-0 text-3xl text-gray-800 tracking-widest font-bold font-serif"
         >
           Jannchie's Blog
         </h1>
+      </div>
+      <div class="flex justify-center text-center uppercase items-center">
+        <svg width="50px" height="2px">
+          <rect width="50px" height="2px" color="#333"></rect>
+        </svg>
+        <NavItem
+          class="nav-item"
+          title="文章"
+          sub-title="Articles"
+          to="/articles"
+        />
+        <svg width="10px" height="10px">
+          <rect width="10px" height="10px" color="#333"></rect>
+        </svg>
+        <NavItem class="nav-item" title="关于" sub-title="About" to="/about" />
+        <svg width="10px" height="10px">
+          <rect width="10px" height="10px" color="#333"></rect>
+        </svg>
+        <NavItem
+          class="nav-item"
+          title="鸣谢"
+          sub-title="Thanks"
+          to="/thanks"
+        />
+        <svg width="50px" height="2px">
+          <rect width="50px" height="2px" color="#333"></rect>
+        </svg>
       </div>
       <div>
         <div class="mt-6 mb-4">
@@ -111,5 +138,8 @@ export default Vue.extend({
 }
 .path-item:not(:first-child)::before {
   content: '>';
+}
+.nav-item {
+  @apply my-2 mx-3 w-16 hover:mx-6 transform duration-300;
 }
 </style>

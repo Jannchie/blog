@@ -5,7 +5,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    // ...
+    margin: ['hover'],
+    width: ['group-hover', 'hover'],
   },
   plugins: [require('@tailwindcss/typography')],
 }
