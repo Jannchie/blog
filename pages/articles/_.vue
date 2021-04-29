@@ -46,7 +46,7 @@ export default {
     const tags = article.tags ? article.tags.replace(/\s/g, '').split(',') : []
     const [prev, next] = await $content('/', { deep: true })
       .only(['title', 'slug', 'path'])
-      .sortBy('createdAt', 'asc')
+      .sortBy('updatedAt', 'asc')
       .surround(article.path)
       .fetch()
     return { article, path, prev, next, tags }
