@@ -1,7 +1,5 @@
 <template>
-  <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
-    <NuxtContent :document="article" />
-  </article>
+  <NuxtContent :document="article" />
 </template>
 
 <script>

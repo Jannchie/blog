@@ -1,0 +1,12 @@
+h1 {
+  @apply mt-3 text-2xl font-serif font-bold text-center;
+}
+h2 {
+  @apply mt-3 text-xl font-serif font-bold;
+}
+h3 {
+  @apply mt-3 text-lg font-serif font-bold;
+}
+.shiki {
+  @apply px-3 py-2 rounded-lg my-3;
+}
