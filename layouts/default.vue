@@ -1,6 +1,8 @@
 <template>
   <div>
+    <BlogTitle /> <BlogNav />
     <Nuxt />
+    <BlogFooter />
   </div>
 </template>
 

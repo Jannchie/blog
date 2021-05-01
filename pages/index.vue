@@ -90,6 +90,8 @@ export default Vue.extend({
           return '计算机视觉'
         case 'master-carreer-design':
           return '职业生涯设计'
+        case 'research':
+          return '研究'
         case 'developer':
           return '开发者'
         case 'draft':

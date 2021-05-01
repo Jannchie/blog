@@ -6,5 +6,6 @@
     >
       <Nuxt />
     </article>
+    <BlogFooter />
   </div>
 </template>

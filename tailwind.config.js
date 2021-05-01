@@ -7,7 +7,7 @@ module.exports = {
   variants: {
     // ...
     margin: ['hover'],
-    width: ['group-hover', 'hover'],
+    width: ['responsive', 'group-hover', 'hover'],
   },
   plugins: [require('@tailwindcss/typography')],
 }
