@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col mx-2">
+  <div class="flex min-h-screen flex-col">
     <BlogTitle /> <BlogNav />
     <article
-      class="mt-3 self-center prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+      class="flex-grow mt-3 self-center prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
     >
       <Nuxt />
     </article>
