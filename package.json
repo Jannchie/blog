@@ -26,7 +26,7 @@
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/pwa": "^3.3.5",
     "@tailwindcss/typography": "^0.4.0",
-    "core-js": "^3.11.2",
+    "core-js": "^3.11.3",
     "moment": "^2.29.1",
     "nuxt": "^2.15.3",
     "nuxt-i18n": "^6.26.0",
