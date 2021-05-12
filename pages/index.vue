@@ -2,8 +2,6 @@
   <div class="container">
     <div>
       <Logo />
-      <BlogTitle></BlogTitle>
-      <BlogNav></BlogNav>
       <div>
         <div class="mt-6 mb-4">
           <div class="text-sm text-gray-400 font-serif">Recent Articles</div>
