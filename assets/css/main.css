@@ -8,9 +8,12 @@ h3 {
   @apply mt-3 text-lg font-serif font-bold;
 }
 .shiki {
-  @apply px-3 py-2 rounded-lg my-3;
+  @apply px-3 py-2 rounded-lg my-3 grid;
 }
 
 img {
-  @apply rounded-lg;
+  @apply rounded-md;
+}
+.nuxt-content-highlight {
+  @apply grid;
 }
