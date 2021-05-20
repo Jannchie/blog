@@ -28,7 +28,7 @@
     "@tailwindcss/typography": "^0.4.0",
     "core-js": "^3.12.1",
     "moment": "^2.29.1",
-    "nuxt": "^2.15.3",
+    "nuxt": "^2.15.6",
     "nuxt-i18n": "^6.27.0",
     "rehype-katex": "^5.0.0",
     "remark-math": "^4.0.0",
